@@ -4,93 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMOvate | Fractional CMO Leadership</title>
-    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap">
-
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        :root {
-            --green-dark: #1a3a2a;
-            --green-mid: #2d6a4f;
-            --accent: #52b788;
-            --cream: #f8f5f0;
-            --text: #1c1c1c;
-            --muted: #4b5563;
-            --white: #ffffff;
-        }
-
+        :root { --green-dark: #1a3a2a; --green-mid: #2d6a4f; --accent: #52b788; --cream: #f8f5f0; --text: #1c1c1c; --muted: #4b5563; --white: #ffffff; }
         html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--white);
-            color: var(--text);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* --- HEADER --- */
-        .site-header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            padding: 0 7%;
-            height: 90px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(255,255,255,0.98);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
+        body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; line-height: 1.6; }
+        .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 7%; height: 90px; display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.98); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         .header-logo img { height: 50px; width: auto; display: block; }
         .header-nav { display: flex; gap: 40px; }
         .header-nav a { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; color: var(--text); text-decoration: none; transition: color 0.3s; }
         .header-nav a:hover { color: var(--accent); }
         .header-cta { background: var(--accent); color: var(--white); padding: 12px 28px; border-radius: 50px; text-decoration: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
-
-        /* --- HERO --- */
-        .hero {
-            padding: 160px 8% 100px;
-            background: linear-gradient(135deg, #f0faf5 0%, #d8f3dc 100%);
-            display: flex;
-            align-items: center;
-            position: relative;
-            min-height: 80vh;
-        }
+        .hero { padding: 160px 8% 100px; background: linear-gradient(135deg, #f0faf5 0%, #d8f3dc 100%); display: flex; align-items: center; position: relative; min-height: 80vh; }
         .hero-text { max-width: 600px; z-index: 2; }
         .hero-text h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4rem); line-height: 1.1; color: var(--green-dark); margin-bottom: 10px; }
-        .hero-text .script { 
-            font-family: 'Cormorant Upright', serif; 
-            font-size: clamp(2.6rem, 4.5vw, 4.2rem); 
-            font-weight: 600; 
-            color: var(--accent); 
-            display: block; 
-            margin-bottom: 30px; 
-        }
+        .hero-text .script { font-family: 'Cormorant Upright', serif; font-size: clamp(2.6rem, 4.5vw, 4.2rem); font-weight: 600; color: var(--accent); display: block; margin-bottom: 30px; }
         .hero-text p { font-size: 1.1rem; color: var(--muted); margin-bottom: 40px; max-width: 480px; font-weight: 400; }
         .btn-primary { display: inline-block; background: var(--green-dark); color: var(--white); padding: 16px 36px; text-decoration: none; font-weight: 600; transition: background 0.3s; }
         .btn-primary:hover { background: var(--accent); }
         .hero-image { position: absolute; right: 0; top: 0; width: 45%; height: 100%; overflow: hidden; }
         .hero-image img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%); }
-
         /* --- TWO-ROW LOGO MARQUEE --- */
         .clients-marquee { padding: 60px 0; background: var(--white); overflow: hidden; border-bottom: 1px solid #eee; }
         .marquee-wrapper { display: flex; flex-direction: column; gap: 40px; }
         .marquee-row { display: flex; overflow: hidden; width: 100%; }
-        .marquee-track { display: flex; gap: 80px; width: max-content; align-items: center; }
+        .marquee-track { display: flex; flex-wrap: nowrap; gap: 80px; width: max-content; align-items: center; }
         .track-left { animation: scroll-left 50s linear infinite; }
         .track-right { animation: scroll-right 50s linear infinite; }
         @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         @keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-        .logo-item img { height: 35px; width: auto; opacity: 1; filter: saturate(100%); display: block; }
-
-        /* --- CARE --- */
+        .logo-item { flex-shrink: 0; height: 60px; display: flex; align-items: center; justify-content: center; }
+        .logo-item img { height: 35px; width: auto; max-width: 130px; opacity: 1; filter: saturate(100%); display: block; object-fit: contain; }
         .care { background: var(--green-dark); color: var(--white); padding: 120px 8%; text-align: center; }
         .care blockquote { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 30px; }
         .care .care-word { color: var(--accent); }
         .care p { color: #e0e0e0; max-width: 700px; margin: 0 auto; font-size: 1.2rem; font-weight: 400; }
-
-        /* --- EXECUTION FRAMEWORK --- */
         .execution { padding: 100px 8%; background: var(--white); border-bottom: 1px solid #eee; }
         .execution-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
         .execution-left h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--green-dark); font-style: italic; line-height: 1.1; }
@@ -98,8 +47,6 @@
         .execution-right { display: grid; gap: 40px; }
         .exec-step h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--green-dark); margin-bottom: 10px; }
         .exec-step p { color: var(--muted); font-size: 1rem; font-weight: 400; }
-
-        /* --- WHAT WE DO BEST --- */
         .services { padding: 100px 8%; background: var(--cream); text-align: center; }
         .services h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 60px; font-style: italic; }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
@@ -108,32 +55,18 @@
         .service-card .num { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.8rem; color: var(--accent); display: block; margin-bottom: 20px; opacity: 1 !important; }
         .service-card h3 { font-size: 1.4rem; color: var(--green-dark); margin-bottom: 15px; }
         .service-card p { font-weight: 400; color: var(--muted); }
-
-        /* --- TESTIMONIALS (THE WORD) --- */
         .testimonials { padding: 100px 0; background: var(--white); overflow: hidden; }
         .testimonials h2 { text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 3rem; margin-bottom: 50px; }
         .testimonials-track { display: flex; gap: 25px; padding: 20px 0; width: max-content; animation: scroll-testimonials 110s linear infinite; }
         .testimonials-track:hover { animation-play-state: paused; }
         @keyframes scroll-testimonials { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .testimonial-card { 
-            background: var(--white); 
-            width: 500px; 
-            padding: 45px; 
-            border-radius: 16px; 
-            border: 1px solid #f0f0f0; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04); 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: space-between; 
-        }
+        .testimonial-card { background: var(--white); width: 500px; padding: 45px; border-radius: 16px; border: 1px solid #f0f0f0; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between; }
         .quote-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; line-height: 1.7; color: var(--green-dark); margin-bottom: 25px; font-weight: 400; }
         .author-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid #f5f5f5; }
         .author-name { font-weight: 700; font-size: 0.95rem; color: var(--text); }
         .author-title { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em; }
         .company-logo-img { height: 28px; max-width: 120px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
         .testimonial-card:hover .company-logo-img { filter: grayscale(0%); opacity: 1; }
-
-        /* --- CONTACT --- */
         .contact { padding: 100px 8%; background: var(--cream); }
         .contact-inner { max-width: 700px; margin: 0 auto; padding: 60px; background: var(--white); border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); text-align: center; }
         .contact h2 { font-family: 'Playfair Display', serif; font-size: 3rem; font-style: italic; margin-bottom: 40px; }
@@ -142,28 +75,15 @@
         .form-field input:focus { border-bottom-color: var(--accent); }
         .btn-send { background: var(--green-dark); color: white; border: none; padding: 18px; width: 100%; cursor: pointer; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: 0.3s; }
         .btn-send:hover { background: var(--accent); }
-
-        @media (max-width: 900px) {
-            .hero { flex-direction: column; padding-top: 120px; text-align: center; }
-            .hero-image { display: none; }
-            .execution-inner { grid-template-columns: 1fr; gap: 40px; }
-            .services-grid { grid-template-columns: 1fr; }
-            .testimonial-card { width: 350px; }
-        }
+        @media (max-width: 900px) { .hero { flex-direction: column; padding-top: 120px; text-align: center; } .hero-image { display: none; } .execution-inner { grid-template-columns: 1fr; gap: 40px; } .services-grid { grid-template-columns: 1fr; } .testimonial-card { width: 350px; } }
     </style>
 </head>
 <body>
-
 <header class="site-header">
     <div class="header-logo"><img src="https://www.cmovate.com/wp-content/uploads/2026/03/cmovate-logo-script.png" alt="CMOvate"></div>
-    <nav class="header-nav">
-        <a href="#method">Method</a>
-        <a href="#services">Services</a>
-        <a href="#testimonials">The Word</a>
-    </nav>
+    <nav class="header-nav"><a href="#method">Method</a><a href="#services">Services</a><a href="#testimonials">The Word</a></nav>
     <a href="#contact" class="header-cta">Let's Talk</a>
 </header>
-
 <section id="hero" class="hero">
     <div class="hero-text">
         <h1>Fractional CMO Leadership<br>That Executes</h1>
@@ -171,11 +91,8 @@
         <p>Most startups don't need another consultant. Work directly with experienced marketing professionals who lead strategy, drive execution, and build scale.</p>
         <a href="#contact" class="btn-primary">Partner with us</a>
     </div>
-    <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Leadership">
-    </div>
+    <div class="hero-image"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Leadership"></div>
 </section>
-
 <section class="clients-marquee">
     <div class="marquee-wrapper">
         <div class="marquee-row">
@@ -183,224 +100,106 @@
                 <div class="logo-item"><img src="https://www.opstream.ai/wp-content/themes/opstream/assets/img/logo-main.svg" alt="Opstream"></div>
                 <div class="logo-item"><img src="https://neura-robotics.com/wp-content/uploads/2025/05/neura_logo_white.svg" style="filter: brightness(0) saturate(100%);" alt="NEURA"></div>
                 <div class="logo-item"><img src="https://www.ness.com/assets/ness-logo-little-white.svg" style="filter: brightness(0) saturate(100%);" alt="Ness"></div>
-                <div class="logo-item"><img src="https://3doptix-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2022/08/3d-new-logo-white.png" style="filter: brightness(0) saturate(100%);" alt="3DOptiX"></div>
                 <div class="logo-item"><img src="https://fizemedical.com/wp-content/uploads/2024/01/Mask-Group-191-1.d110a0.webp" alt="FIZE Medical"></div>
                 <div class="logo-item"><img src="https://www.laylinetech.com/web/image/website/1/logo/Layline%20tech?unique=2d45c0a" alt="Layline Tech"></div>
                 <div class="logo-item"><img src="https://not-me.com/wp-content/uploads/2024/12/Logo.png" alt="NotMe"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/Logo-small.png" alt="3DOptiX"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/M.B.B-TECH-LOGO-HORIZONTAL-WHITE.png" alt="MBB Tech"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/Seedbiz-Logo.png" alt="Seedbiz"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/TLVTECH.png" alt="TLVTech"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/Vocavibe.png" alt="Vocavibe"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/cotingency-logo-transparent.png" alt="Cotingency"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/full-logo-black.png" alt="Full Logo"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/gdai_social.png" alt="GDAI"></div>
                 <div class="logo-item"><img src="https://www.opstream.ai/wp-content/themes/opstream/assets/img/logo-main.svg" alt="Opstream"></div>
                 <div class="logo-item"><img src="https://neura-robotics.com/wp-content/uploads/2025/05/neura_logo_white.svg" style="filter: brightness(0) saturate(100%);" alt="NEURA"></div>
                 <div class="logo-item"><img src="https://www.ness.com/assets/ness-logo-little-white.svg" style="filter: brightness(0) saturate(100%);" alt="Ness"></div>
-                <div class="logo-item"><img src="https://3doptix-wordpress-prod.s3.amazonaws.com/wp-content/uploads/2022/08/3d-new-logo-white.png" style="filter: brightness(0) saturate(100%);" alt="3DOptiX"></div>
                 <div class="logo-item"><img src="https://fizemedical.com/wp-content/uploads/2024/01/Mask-Group-191-1.d110a0.webp" alt="FIZE Medical"></div>
                 <div class="logo-item"><img src="https://www.laylinetech.com/web/image/website/1/logo/Layline%20tech?unique=2d45c0a" alt="Layline Tech"></div>
                 <div class="logo-item"><img src="https://not-me.com/wp-content/uploads/2024/12/Logo.png" alt="NotMe"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/Logo-small.png" alt="3DOptiX"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/M.B.B-TECH-LOGO-HORIZONTAL-WHITE.png" alt="MBB Tech"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/Seedbiz-Logo.png" alt="Seedbiz"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/TLVTECH.png" alt="TLVTech"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/Vocavibe.png" alt="Vocavibe"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/cotingency-logo-transparent.png" alt="Cotingency"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/full-logo-black.png" alt="Full Logo"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/gdai_social.png" alt="GDAI"></div>
             </div>
         </div>
         <div class="marquee-row">
             <div class="marquee-track track-right">
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/hostreo.png" alt="Hostreo"></div>
                 <div class="logo-item"><img src="https://www.tikalk.com/_next/static/media/logo.0cc9df56.svg" alt="Tikal"></div>
                 <div class="logo-item"><img src="https://cdn.prod.website-files.com/68e74b4a23236874343299f8/697a0b6a1c9b0060d21cde3b_Hoopo%20logo%20dark%20V2.svg" alt="Hoopo"></div>
                 <div class="logo-item"><img src="https://cdn.bdo.global/images/bdo_logo/1.0.0/bdo_logo_color.png" alt="BDO"></div>
                 <div class="logo-item"><img src="https://yd-labs.com/wp-content/uploads/2023/12/logo-1-1.svg" alt="YD Labs"></div>
-                <div class="logo-item"><img src="https://www.callers.ai/images/favicon-192.png" alt="Callers"></div>
                 <div class="logo-item"><img src="https://static.wixstatic.com/media/609379_d9f3404d630e4396994cab3b7000dd23~mv2.png" alt="CLY"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/mccann.png" alt="McCann"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/novacy%20logo%20main%2001.png" alt="Novacy"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/nsoft.svg" alt="nSoft"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/reCost%20Main%20Logo%20(2).webp" alt="reCost"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/samplead.png" alt="Samplead"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/woo.png" alt="Woo"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/zFGZQ9xuWzR9qUn5BV0TMn1Cz3g1736325403945_200x200.png" alt="Datatailr"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/%D7%90%D7%99%D7%A0%D7%91%D7%95%D7%A7%20%D7%9C%D7%95%D7%92%D7%95%20%D7%A8%D7%90%D7%A9%D7%99.png" alt="Inbox"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/hostreo.png" alt="Hostreo"></div>
                 <div class="logo-item"><img src="https://www.tikalk.com/_next/static/media/logo.0cc9df56.svg" alt="Tikal"></div>
                 <div class="logo-item"><img src="https://cdn.prod.website-files.com/68e74b4a23236874343299f8/697a0b6a1c9b0060d21cde3b_Hoopo%20logo%20dark%20V2.svg" alt="Hoopo"></div>
                 <div class="logo-item"><img src="https://cdn.bdo.global/images/bdo_logo/1.0.0/bdo_logo_color.png" alt="BDO"></div>
                 <div class="logo-item"><img src="https://yd-labs.com/wp-content/uploads/2023/12/logo-1-1.svg" alt="YD Labs"></div>
-                <div class="logo-item"><img src="https://www.callers.ai/images/favicon-192.png" alt="Callers"></div>
                 <div class="logo-item"><img src="https://static.wixstatic.com/media/609379_d9f3404d630e4396994cab3b7000dd23~mv2.png" alt="CLY"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/mccann.png" alt="McCann"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/novacy%20logo%20main%2001.png" alt="Novacy"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/nsoft.svg" alt="nSoft"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/reCost%20Main%20Logo%20(2).webp" alt="reCost"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/samplead.png" alt="Samplead"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/woo.png" alt="Woo"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/zFGZQ9xuWzR9qUn5BV0TMn1Cz3g1736325403945_200x200.png" alt="Datatailr"></div>
+                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/%D7%90%D7%99%D7%A0%D7%91%D7%95%D7%A7%20%D7%9C%D7%95%D7%92%D7%95%20%D7%A8%D7%90%D7%A9%D7%99.png" alt="Inbox"></div>
             </div>
         </div>
     </div>
 </section>
-
 <section id="care" class="care">
     <blockquote>We really care about<br><span class="care-word">your company.</span></blockquote>
     <p>We join founders on their entrepreneurial journey, building the essential marketing foundations needed to win. From early-stage startups to scaling companies.</p>
 </section>
-
 <section id="method" class="execution">
     <div class="execution-inner">
-        <div class="execution-left">
-            <h2>Strategy is<br>the easy part.<strong>We stay for the execution.</strong></h2>
-        </div>
+        <div class="execution-left"><h2>Strategy is<br>the easy part.<strong>We stay for the execution.</strong></h2></div>
         <div class="execution-right">
-            <div class="exec-step">
-                <h3>The Blueprint.</h3>
-                <p>We audit your GTM and tech-stack to build a blueprint that fits your unit economics.</p>
-            </div>
-            <div class="exec-step">
-                <h3>The Engine.</h3>
-                <p>We open the laptops and build the engine.</p>
-            </div>
-            <div class="exec-step">
-                <h3>The Scale.</h3>
-                <p>We join your leadership layer, roll up our sleeves, and get to work to ensure your scale.</p>
-            </div>
+            <div class="exec-step"><h3>The Blueprint.</h3><p>We audit your GTM and tech-stack to build a blueprint that fits your unit economics.</p></div>
+            <div class="exec-step"><h3>The Engine.</h3><p>We open the laptops and build the engine.</p></div>
+            <div class="exec-step"><h3>The Scale.</h3><p>We join your leadership layer, roll up our sleeves, and get to work to ensure your scale.</p></div>
         </div>
     </div>
 </section>
-
 <section id="services" class="services">
     <h2>What we do best.</h2>
     <div class="services-grid">
-        <div class="service-card">
-            <span class="num">01.</span>
-            <h3>Strategic GTM & Narrative</h3>
-            <p>Crafting the brand story and go-to-market strategy that makes you stand out in a crowded market.</p>
-        </div>
-        <div class="service-card">
-            <span class="num">02.</span>
-            <h3>Marketing Ops & Automation</h3>
-            <p>Building intelligent workflows and automation systems that save time and generate high-quality leads.</p>
-        </div>
-        <div class="service-card">
-            <span class="num">03.</span>
-            <h3>Revenue Growth Systems</h3>
-            <p>Connecting the dots between data and spend to ensure every marketing dollar translates into revenue.</p>
-        </div>
+        <div class="service-card"><span class="num">01.</span><h3>Strategic GTM &amp; Narrative</h3><p>Crafting the brand story and go-to-market strategy that makes you stand out in a crowded market.</p></div>
+        <div class="service-card"><span class="num">02.</span><h3>Marketing Ops &amp; Automation</h3><p>Building intelligent workflows and automation systems that save time and generate high-quality leads.</p></div>
+        <div class="service-card"><span class="num">03.</span><h3>Revenue Growth Systems</h3><p>Connecting the dots between data and spend to ensure every marketing dollar translates into revenue.</p></div>
     </div>
 </section>
-
 <section id="testimonials" class="testimonials">
     <h2>The Word.</h2>
     <div class="testimonials-track">
-        
-        <div class="testimonial-card">
-            <p class="quote-text">"We brought Elad in as a Fractional CMO during a transition period... He truly became part of the team and cared deeply about Opstream’s success. I’d highly recommend Elad."</p>
-            <div class="author-footer">
-                <div class="author-meta">
-                    <span class="author-name">Lihi Lutan</span>
-                    <span class="author-title">Founder & CEO, Opstream</span>
-                </div>
-                <img src="https://www.opstream.ai/wp-content/themes/opstream/assets/img/logo-main.svg" class="company-logo-img" alt="Opstream">
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <p class="quote-text">"Sivan is a seasoned marketing professional. While working together, she crafted a clear marketing strategy and set up a structured weekly execution plan... consistent outbound communication driving focused, measurable growth."</p>
-            <div class="author-footer">
-                <div class="author-meta">
-                    <span class="author-name">Nadav Lebovitch</span>
-                    <span class="author-title">Founder & CTO, nSoft</span>
-                </div>
-                <img src="https://www.ness.com/assets/ness-logo-little-white.svg" class="company-logo-img" style="filter: invert(1) brightness(0);" alt="Ness">
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <p class="quote-text">"Sivan brings a highly professional approach... marked by fresh and original thinking, sharp execution, and genuine dedication. We’re happy to be working with Sivan."</p>
-            <div class="author-footer">
-                <div class="author-meta">
-                    <span class="author-name">Ziv Elron</span>
-                    <span class="author-title">Co-Founder, IM.Tec</span>
-                </div>
-                <span style="font-weight:700; color:#ccc; font-size:0.8rem;">IM.TEC</span>
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <p class="quote-text">"When it comes to inbound lead generation for B2B, Elad is absolutely a genius. After a few weeks, LinkedIn started giving us serious leads."</p>
-            <div class="author-footer">
-                <div class="author-meta">
-                    <span class="author-name">Ron Starinsky</span>
-                    <span class="author-title">Founder & CEO, ICV</span>
-                </div>
-                <span style="font-weight:700; color:#ccc; font-size:0.8rem;">ICV</span>
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <p class="quote-text">"Sivan's sharp and reliable and brings a sense of professionalism and calm to every project. Working with her is always a great experience."</p>
-            <div class="author-footer">
-                <div class="author-meta">
-                    <span class="author-name">Raz Malka</span>
-                    <span class="author-title">GM at GDAI</span>
-                </div>
-                <span style="font-weight:700; color:#ccc; font-size:0.8rem;">GDAI</span>
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <p class="quote-text">"Elad understands the startup's budget constraints and work in efficiency... managing lean and cost-effective marketing strategies."</p>
-            <div class="author-footer">
-                <div class="author-meta">
-                    <span class="author-name">Nimrod Ron</span>
-                    <span class="author-title">Founder & CEO, Voxia.ai</span>
-                </div>
-                <span style="font-weight:700; color:#ccc; font-size:0.8rem;">VOXIA</span>
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <p class="quote-text">"Elad is the best marketing partner you could have asked for. The ideas he gave us are now core marketing activities."</p>
-            <div class="author-footer">
-                <div class="author-meta">
-                    <span class="author-name">Daniel Gorlovetsky</span>
-                    <span class="author-title">Founder & CEO, TLVTech</span>
-                </div>
-                <span style="font-weight:700; color:#ccc; font-size:0.8rem;">TLVTECH</span>
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <p class="quote-text">"Elad has been doing an incredible job with us. He is a true partner who works hand-in-hand with the team."</p>
-            <div class="author-footer">
-                <div class="author-meta">
-                    <span class="author-name">Timer Tabibi</span>
-                    <span class="author-title">Founder & CEO, CLY</span>
-                </div>
-                <img src="https://static.wixstatic.com/media/609379_d9f3404d630e4396994cab3b7000dd23~mv2.png" class="company-logo-img" alt="CLY">
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <p class="quote-text">"Elad has been a game changer for us. Fast, thorough, and effective. Highly recommended!!"</p>
-            <div class="author-footer">
-                <div class="author-meta">
-                    <span class="author-name">Benny Rosner</span>
-                    <span class="author-title">Co-Founder & CEO, Chronom.ai</span>
-                </div>
-                <img src="https://www.callers.ai/images/favicon-192.png" class="company-logo-img" alt="Callers">
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <p class="quote-text">"Working with Elad was a refreshing exception. He quickly became a true team player."</p>
-            <div class="author-footer">
-                <div class="author-meta">
-                    <span class="author-name">Elkana Pressler</span>
-                    <span class="author-title">Co Founder & COO, Chronom.ai</span>
-                </div>
-                <span style="font-weight:700; color:#ccc; font-size:0.8rem;">CHRONOM</span>
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <p class="quote-text">"When it comes to marketing, Elad is a rock star. He helped us build our entire marketing infrastructure from the ground up."</p>
-            <div class="author-footer">
-                <div class="author-meta">
-                    <span class="author-name">Or Biderman</span>
-                    <span class="author-title">Co-Founder & CEO, Novacy</span>
-                </div>
-                <span style="font-weight:700; color:#ccc; font-size:0.8rem;">NOVACY</span>
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <p class="quote-text">"He truly became part of the team and cared deeply about Opstream’s success. I’d highly recommend Elad."</p>
-            <div class="author-footer">
-                <div class="author-meta">
-                    <span class="author-name">Lihi Lutan</span>
-                    <span class="author-title">Founder & CEO, Opstream</span>
-                </div>
-                <img src="https://www.opstream.ai/wp-content/themes/opstream/assets/img/logo-main.svg" class="company-logo-img" alt="Opstream">
-            </div>
-        </div>
-        </div>
+        <div class="testimonial-card"><p class="quote-text">"We brought Elad in as a Fractional CMO during a transition period... He truly became part of the team and cared deeply about Opstream's success. I'd highly recommend Elad."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Lihi Lutan</span><span class="author-title">Founder &amp; CEO, Opstream</span></div><img src="https://www.opstream.ai/wp-content/themes/opstream/assets/img/logo-main.svg" class="company-logo-img" alt="Opstream"></div></div>
+        <div class="testimonial-card"><p class="quote-text">"Sivan is a seasoned marketing professional. While working together, she crafted a clear marketing strategy and set up a structured weekly execution plan."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Nadav Lebovitch</span><span class="author-title">Founder &amp; CTO, nSoft</span></div><img src="https://www.ness.com/assets/ness-logo-little-white.svg" class="company-logo-img" style="filter: invert(1) brightness(0);" alt="Ness"></div></div>
+        <div class="testimonial-card"><p class="quote-text">"Sivan brings a highly professional approach... marked by fresh and original thinking, sharp execution, and genuine dedication."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Ziv Elron</span><span class="author-title">Co-Founder, IM.Tec</span></div><span style="font-weight:700; color:#ccc; font-size:0.8rem;">IM.TEC</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"When it comes to inbound lead generation for B2B, Elad is absolutely a genius. After a few weeks, LinkedIn started giving us serious leads."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Ron Starinsky</span><span class="author-title">Founder &amp; CEO, ICV</span></div><span style="font-weight:700; color:#ccc; font-size:0.8rem;">ICV</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"Sivan's sharp and reliable and brings a sense of professionalism and calm to every project."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Raz Malka</span><span class="author-title">GM at GDAI</span></div><span style="font-weight:700; color:#ccc; font-size:0.8rem;">GDAI</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"Elad understands the startup's budget constraints and work in efficiency... managing lean and cost-effective marketing strategies."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Nimrod Ron</span><span class="author-title">Founder &amp; CEO, Voxia.ai</span></div><span style="font-weight:700; color:#ccc; font-size:0.8rem;">VOXIA</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"Elad is the best marketing partner you could have asked for. The ideas he gave us are now core marketing activities."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Daniel Gorlovetsky</span><span class="author-title">Founder &amp; CEO, TLVTech</span></div><span style="font-weight:700; color:#ccc; font-size:0.8rem;">TLVTECH</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"Elad has been doing an incredible job with us. He is a true partner who works hand-in-hand with the team."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Timer Tabibi</span><span class="author-title">Founder &amp; CEO, CLY</span></div><img src="https://static.wixstatic.com/media/609379_d9f3404d630e4396994cab3b7000dd23~mv2.png" class="company-logo-img" alt="CLY"></div></div>
+        <div class="testimonial-card"><p class="quote-text">"Elad has been a game changer for us. Fast, thorough, and effective. Highly recommended!!"</p><div class="author-footer"><div class="author-meta"><span class="author-name">Benny Rosner</span><span class="author-title">Co-Founder &amp; CEO, Chronom.ai</span></div><img src="https://www.callers.ai/images/favicon-192.png" class="company-logo-img" alt="Callers"></div></div>
+        <div class="testimonial-card"><p class="quote-text">"Working with Elad was a refreshing exception. He quickly became a true team player."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Elkana Pressler</span><span class="author-title">Co Founder &amp; COO, Chronom.ai</span></div><span style="font-weight:700; color:#ccc; font-size:0.8rem;">CHRONOM</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"When it comes to marketing, Elad is a rock star. He helped us build our entire marketing infrastructure from the ground up."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Or Biderman</span><span class="author-title">Co-Founder &amp; CEO, Novacy</span></div><span style="font-weight:700; color:#ccc; font-size:0.8rem;">NOVACY</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"He truly became part of the team and cared deeply about Opstream's success. I'd highly recommend Elad."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Lihi Lutan</span><span class="author-title">Founder &amp; CEO, Opstream</span></div><img src="https://www.opstream.ai/wp-content/themes/opstream/assets/img/logo-main.svg" class="company-logo-img" alt="Opstream"></div></div>
+    </div>
 </section>
-
 <section id="contact" class="contact">
     <div class="contact-inner">
         <h2>Let's talk.</h2>
@@ -412,10 +211,8 @@
         </form>
     </div>
 </section>
-
 <footer style="padding: 40px; text-align: center; background: var(--green-dark); color: white;">
     <p>© 2026 CMO'vate. All rights reserved.</p>
 </footer>
-
 </body>
 </html>
