@@ -25,17 +25,14 @@
         .btn-primary:hover { background: var(--accent); }
         .hero-image { position: absolute; right: 0; top: 0; width: 45%; height: 100%; overflow: hidden; }
         .hero-image img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%); }
-        /* --- TWO-ROW LOGO MARQUEE --- */
-        .clients-marquee { padding: 60px 0; background: var(--white); overflow: hidden; border-bottom: 1px solid #eee; }
-        .marquee-wrapper { display: flex; flex-direction: column; gap: 40px; }
-        .marquee-row { display: flex; overflow: hidden; width: 100%; }
-        .marquee-track { display: flex; flex-wrap: nowrap; gap: 80px; width: max-content; align-items: center; }
-        .track-left { animation: scroll-left 50s linear infinite; }
-        .track-right { animation: scroll-right 50s linear infinite; }
-        @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        @keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-        .logo-item { flex-shrink: 0; height: 60px; display: flex; align-items: center; justify-content: center; }
-        .logo-item img { height: 35px; width: auto; max-width: 130px; opacity: 1; filter: saturate(100%); display: block; object-fit: contain; }
+        /* --- STATIC LOGO ROWS --- */
+        .clients-marquee { padding: 60px 0; background: #ffffff; border-bottom: 1px solid #eee; }
+        .marquee-wrapper { display: flex; flex-direction: column; gap: 35px; }
+        .marquee-row { display: flex; justify-content: center; width: 100%; }
+        .marquee-track { display: flex; gap: 60px; align-items: center; flex-wrap: wrap; justify-content: center; max-width: 1100px; margin: 0 auto; }
+        .logo-item { display: flex; align-items: center; justify-content: center; }
+        .logo-item img { height: 32px; width: auto; opacity: 1 !important; filter: saturate(100%) !important; display: block; }
+        @media (max-width: 768px) { .marquee-track { gap: 30px; } .logo-item img { height: 25px; } }
         .care { background: var(--green-dark); color: var(--white); padding: 120px 8%; text-align: center; }
         .care blockquote { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 30px; }
         .care .care-word { color: var(--accent); }
@@ -51,8 +48,8 @@
         .services h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 60px; font-style: italic; }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .service-card { padding: 50px; background: var(--white); border-radius: 12px; transition: 0.3s; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--accent); }
-        .service-card .num { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.8rem; color: var(--accent); display: block; margin-bottom: 20px; opacity: 1 !important; }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-card .num { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.8rem; color: var(--accent); display: block; margin-bottom: 20px; }
         .service-card h3 { font-size: 1.4rem; color: var(--green-dark); margin-bottom: 15px; }
         .service-card p { font-weight: 400; color: var(--muted); }
         .testimonials { padding: 100px 0; background: var(--white); overflow: hidden; }
@@ -96,24 +93,10 @@
 <section class="clients-marquee">
     <div class="marquee-wrapper">
         <div class="marquee-row">
-            <div class="marquee-track track-left">
+            <div class="marquee-track">
                 <div class="logo-item"><img src="https://www.opstream.ai/wp-content/themes/opstream/assets/img/logo-main.svg" alt="Opstream"></div>
-                <div class="logo-item"><img src="https://neura-robotics.com/wp-content/uploads/2025/05/neura_logo_white.svg" style="filter: brightness(0) saturate(100%);" alt="NEURA"></div>
-                <div class="logo-item"><img src="https://www.ness.com/assets/ness-logo-little-white.svg" style="filter: brightness(0) saturate(100%);" alt="Ness"></div>
-                <div class="logo-item"><img src="https://fizemedical.com/wp-content/uploads/2024/01/Mask-Group-191-1.d110a0.webp" alt="FIZE Medical"></div>
-                <div class="logo-item"><img src="https://www.laylinetech.com/web/image/website/1/logo/Layline%20tech?unique=2d45c0a" alt="Layline Tech"></div>
-                <div class="logo-item"><img src="https://not-me.com/wp-content/uploads/2024/12/Logo.png" alt="NotMe"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/Logo-small.png" alt="3DOptiX"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/M.B.B-TECH-LOGO-HORIZONTAL-WHITE.png" alt="MBB Tech"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/Seedbiz-Logo.png" alt="Seedbiz"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/TLVTECH.png" alt="TLVTech"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/Vocavibe.png" alt="Vocavibe"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/cotingency-logo-transparent.png" alt="Cotingency"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/full-logo-black.png" alt="Full Logo"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/gdai_social.png" alt="GDAI"></div>
-                <div class="logo-item"><img src="https://www.opstream.ai/wp-content/themes/opstream/assets/img/logo-main.svg" alt="Opstream"></div>
-                <div class="logo-item"><img src="https://neura-robotics.com/wp-content/uploads/2025/05/neura_logo_white.svg" style="filter: brightness(0) saturate(100%);" alt="NEURA"></div>
-                <div class="logo-item"><img src="https://www.ness.com/assets/ness-logo-little-white.svg" style="filter: brightness(0) saturate(100%);" alt="Ness"></div>
+                <div class="logo-item"><img src="https://neura-robotics.com/wp-content/uploads/2025/05/neura_logo_white.svg" alt="NEURA"></div>
+                <div class="logo-item"><img src="https://www.ness.com/assets/ness-logo-little-white.svg" alt="Ness"></div>
                 <div class="logo-item"><img src="https://fizemedical.com/wp-content/uploads/2024/01/Mask-Group-191-1.d110a0.webp" alt="FIZE Medical"></div>
                 <div class="logo-item"><img src="https://www.laylinetech.com/web/image/website/1/logo/Layline%20tech?unique=2d45c0a" alt="Layline Tech"></div>
                 <div class="logo-item"><img src="https://not-me.com/wp-content/uploads/2024/12/Logo.png" alt="NotMe"></div>
@@ -128,21 +111,7 @@
             </div>
         </div>
         <div class="marquee-row">
-            <div class="marquee-track track-right">
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/hostreo.png" alt="Hostreo"></div>
-                <div class="logo-item"><img src="https://www.tikalk.com/_next/static/media/logo.0cc9df56.svg" alt="Tikal"></div>
-                <div class="logo-item"><img src="https://cdn.prod.website-files.com/68e74b4a23236874343299f8/697a0b6a1c9b0060d21cde3b_Hoopo%20logo%20dark%20V2.svg" alt="Hoopo"></div>
-                <div class="logo-item"><img src="https://cdn.bdo.global/images/bdo_logo/1.0.0/bdo_logo_color.png" alt="BDO"></div>
-                <div class="logo-item"><img src="https://yd-labs.com/wp-content/uploads/2023/12/logo-1-1.svg" alt="YD Labs"></div>
-                <div class="logo-item"><img src="https://static.wixstatic.com/media/609379_d9f3404d630e4396994cab3b7000dd23~mv2.png" alt="CLY"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/mccann.png" alt="McCann"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/novacy%20logo%20main%2001.png" alt="Novacy"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/nsoft.svg" alt="nSoft"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/reCost%20Main%20Logo%20(2).webp" alt="reCost"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/samplead.png" alt="Samplead"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/woo.png" alt="Woo"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/zFGZQ9xuWzR9qUn5BV0TMn1Cz3g1736325403945_200x200.png" alt="Datatailr"></div>
-                <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/%D7%90%D7%99%D7%A0%D7%91%D7%95%D7%A7%20%D7%9C%D7%95%D7%92%D7%95%20%D7%A8%D7%90%D7%A9%D7%99.png" alt="Inbox"></div>
+            <div class="marquee-track">
                 <div class="logo-item"><img src="https://raw.githubusercontent.com/cmovate/Landing-page-v-3/Final-logos/hostreo.png" alt="Hostreo"></div>
                 <div class="logo-item"><img src="https://www.tikalk.com/_next/static/media/logo.0cc9df56.svg" alt="Tikal"></div>
                 <div class="logo-item"><img src="https://cdn.prod.website-files.com/68e74b4a23236874343299f8/697a0b6a1c9b0060d21cde3b_Hoopo%20logo%20dark%20V2.svg" alt="Hoopo"></div>
@@ -187,16 +156,16 @@
     <h2>The Word.</h2>
     <div class="testimonials-track">
         <div class="testimonial-card"><p class="quote-text">"We brought Elad in as a Fractional CMO during a transition period... He truly became part of the team and cared deeply about Opstream's success. I'd highly recommend Elad."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Lihi Lutan</span><span class="author-title">Founder &amp; CEO, Opstream</span></div><img src="https://www.opstream.ai/wp-content/themes/opstream/assets/img/logo-main.svg" class="company-logo-img" alt="Opstream"></div></div>
-        <div class="testimonial-card"><p class="quote-text">"Sivan is a seasoned marketing professional. While working together, she crafted a clear marketing strategy and set up a structured weekly execution plan."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Nadav Lebovitch</span><span class="author-title">Founder &amp; CTO, nSoft</span></div><img src="https://www.ness.com/assets/ness-logo-little-white.svg" class="company-logo-img" style="filter: invert(1) brightness(0);" alt="Ness"></div></div>
-        <div class="testimonial-card"><p class="quote-text">"Sivan brings a highly professional approach... marked by fresh and original thinking, sharp execution, and genuine dedication."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Ziv Elron</span><span class="author-title">Co-Founder, IM.Tec</span></div><span style="font-weight:700; color:#ccc; font-size:0.8rem;">IM.TEC</span></div></div>
-        <div class="testimonial-card"><p class="quote-text">"When it comes to inbound lead generation for B2B, Elad is absolutely a genius. After a few weeks, LinkedIn started giving us serious leads."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Ron Starinsky</span><span class="author-title">Founder &amp; CEO, ICV</span></div><span style="font-weight:700; color:#ccc; font-size:0.8rem;">ICV</span></div></div>
-        <div class="testimonial-card"><p class="quote-text">"Sivan's sharp and reliable and brings a sense of professionalism and calm to every project."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Raz Malka</span><span class="author-title">GM at GDAI</span></div><span style="font-weight:700; color:#ccc; font-size:0.8rem;">GDAI</span></div></div>
-        <div class="testimonial-card"><p class="quote-text">"Elad understands the startup's budget constraints and work in efficiency... managing lean and cost-effective marketing strategies."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Nimrod Ron</span><span class="author-title">Founder &amp; CEO, Voxia.ai</span></div><span style="font-weight:700; color:#ccc; font-size:0.8rem;">VOXIA</span></div></div>
-        <div class="testimonial-card"><p class="quote-text">"Elad is the best marketing partner you could have asked for. The ideas he gave us are now core marketing activities."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Daniel Gorlovetsky</span><span class="author-title">Founder &amp; CEO, TLVTech</span></div><span style="font-weight:700; color:#ccc; font-size:0.8rem;">TLVTECH</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"Sivan is a seasoned marketing professional. While working together, she crafted a clear marketing strategy and set up a structured weekly execution plan."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Nadav Lebovitch</span><span class="author-title">Founder &amp; CTO, nSoft</span></div><span style="font-weight:700;color:#ccc;font-size:0.8rem;">NSOFT</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"Sivan brings a highly professional approach... marked by fresh and original thinking, sharp execution, and genuine dedication."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Ziv Elron</span><span class="author-title">Co-Founder, IM.Tec</span></div><span style="font-weight:700;color:#ccc;font-size:0.8rem;">IM.TEC</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"When it comes to inbound lead generation for B2B, Elad is absolutely a genius. After a few weeks, LinkedIn started giving us serious leads."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Ron Starinsky</span><span class="author-title">Founder &amp; CEO, ICV</span></div><span style="font-weight:700;color:#ccc;font-size:0.8rem;">ICV</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"Sivan's sharp and reliable and brings a sense of professionalism and calm to every project."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Raz Malka</span><span class="author-title">GM at GDAI</span></div><span style="font-weight:700;color:#ccc;font-size:0.8rem;">GDAI</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"Elad understands the startup's budget constraints and works in efficiency... managing lean and cost-effective marketing strategies."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Nimrod Ron</span><span class="author-title">Founder &amp; CEO, Voxia.ai</span></div><span style="font-weight:700;color:#ccc;font-size:0.8rem;">VOXIA</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"Elad is the best marketing partner you could have asked for. The ideas he gave us are now core marketing activities."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Daniel Gorlovetsky</span><span class="author-title">Founder &amp; CEO, TLVTech</span></div><span style="font-weight:700;color:#ccc;font-size:0.8rem;">TLVTECH</span></div></div>
         <div class="testimonial-card"><p class="quote-text">"Elad has been doing an incredible job with us. He is a true partner who works hand-in-hand with the team."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Timer Tabibi</span><span class="author-title">Founder &amp; CEO, CLY</span></div><img src="https://static.wixstatic.com/media/609379_d9f3404d630e4396994cab3b7000dd23~mv2.png" class="company-logo-img" alt="CLY"></div></div>
         <div class="testimonial-card"><p class="quote-text">"Elad has been a game changer for us. Fast, thorough, and effective. Highly recommended!!"</p><div class="author-footer"><div class="author-meta"><span class="author-name">Benny Rosner</span><span class="author-title">Co-Founder &amp; CEO, Chronom.ai</span></div><img src="https://www.callers.ai/images/favicon-192.png" class="company-logo-img" alt="Callers"></div></div>
-        <div class="testimonial-card"><p class="quote-text">"Working with Elad was a refreshing exception. He quickly became a true team player."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Elkana Pressler</span><span class="author-title">Co Founder &amp; COO, Chronom.ai</span></div><span style="font-weight:700; color:#ccc; font-size:0.8rem;">CHRONOM</span></div></div>
-        <div class="testimonial-card"><p class="quote-text">"When it comes to marketing, Elad is a rock star. He helped us build our entire marketing infrastructure from the ground up."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Or Biderman</span><span class="author-title">Co-Founder &amp; CEO, Novacy</span></div><span style="font-weight:700; color:#ccc; font-size:0.8rem;">NOVACY</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"Working with Elad was a refreshing exception. He quickly became a true team player."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Elkana Pressler</span><span class="author-title">Co Founder &amp; COO, Chronom.ai</span></div><span style="font-weight:700;color:#ccc;font-size:0.8rem;">CHRONOM</span></div></div>
+        <div class="testimonial-card"><p class="quote-text">"When it comes to marketing, Elad is a rock star. He helped us build our entire marketing infrastructure from the ground up."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Or Biderman</span><span class="author-title">Co-Founder &amp; CEO, Novacy</span></div><span style="font-weight:700;color:#ccc;font-size:0.8rem;">NOVACY</span></div></div>
         <div class="testimonial-card"><p class="quote-text">"He truly became part of the team and cared deeply about Opstream's success. I'd highly recommend Elad."</p><div class="author-footer"><div class="author-meta"><span class="author-name">Lihi Lutan</span><span class="author-title">Founder &amp; CEO, Opstream</span></div><img src="https://www.opstream.ai/wp-content/themes/opstream/assets/img/logo-main.svg" class="company-logo-img" alt="Opstream"></div></div>
     </div>
 </section>
