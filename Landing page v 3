@@ -7,7 +7,7 @@
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap">
 
-    <style>
+    <style>h
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         
         :root {
@@ -130,8 +130,8 @@
         .author-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid #f5f5f5; }
         .author-name { font-weight: 700; font-size: 0.95rem; color: var(--text); }
         .author-title { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em; }
-        .company-logo-img { height: 28px; max-width: 120px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
-        .testimonial-card:hover .company-logo-img { filter: grayscale(0%); opacity: 1; }
+        .company-logo-img { height: 28px; max-width: 120px; object-fit: contain; filter: grayscale(0%); opacity: 1; }
+        
 
         /* --- CONTACT --- */
         .contact { padding: 100px 8%; background: var(--cream); }
